@@ -33,12 +33,12 @@
             margin-top: 20px;
         }
         button {
-            font-size: 16px;
-            padding: 10px 20px;
+            font-size: 18px; /* Increased font size for better visibility */
+            padding: 15px 30px; /* Increased padding for easier tapping */
             margin: 0 10px;
             cursor: pointer;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px; /* Increased border radius for better aesthetics */
             background-color: #007bff;
             color: #fff;
             transition: background-color 0.3s;
@@ -50,27 +50,29 @@
         #video-container {
             position: relative;
             width: 100%;
-            height: 100vh;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio (Responsive for videos) */
+        }
+        #video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #video-overlay, #bottom-text {
+            position: absolute;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            font-size: 24px; /* Adjusted font size for better visibility */
+            font-weight: bold;
         }
         #video-overlay {
-            position: absolute;
-            top: 20px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            color: white;
-            font-size: 54px;
-            font-weight: bold;
+            top: 10%;
         }
         #bottom-text {
-            position: absolute;
-            bottom: 20px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            color: white;
-            font-size: 54px;
-            font-weight: bold;
+            bottom: 10%;
         }
     </style>
 </head>
@@ -90,7 +92,7 @@
             document.getElementById("photo").src = "photo2.png";
             document.getElementById("buttons").innerHTML = `
                 <div id="question">
-                    <p>are you shrimp?</p>
+                    <p>Are you shrimp?</p>
                     <button id="yesButton">Yes</button>
                     <button id="noButton">No</button>
                 </div>
@@ -106,7 +108,7 @@
         function playVideo(videoSrc) {
             document.body.innerHTML = `
                 <div id="video-container">
-                    <video src="${videoSrc}" autoplay loop style="width: 100%; height: 100%;"></video>
+                    <video src="${videoSrc}" autoplay loop></video>
                     <div id="video-overlay">SHRIMP</div>
                     <div id="bottom-text">SHRIMP</div>
                 </div>
